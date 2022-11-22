@@ -7,6 +7,8 @@ export default class App extends Component {
     super();
     this.state = {
       contador: 0,
+      limiteInferior: 0,
+      limiteSuperior: 12,
     };
     this.aumentarContador = this.aumentarContador.bind(this);
     this.disminuirContador = this.disminuirContador.bind(this);
@@ -18,20 +20,28 @@ export default class App extends Component {
       this.setState({ contador: this.state.contador + 1 });
   }
   disminuirContador() {
-    if (this.state.contador > 0)
+    if (this.state.contador > this.state.limiteInferior)
       this.setState({ contador: this.state.contador - 1 });
   }
   resetState() {
     this.setState({ contador: 0 });
   }
+
+  establecerLimiteInferior(nuevoLimite) {
+    this.setState({ limiteInferior: nuevoLimite });
+  }
   render() {
     return (
       <div className="App App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>Aplicacion de Contador</p>
         <p>{this.state.contador}</p>
+        <p>{JSON.stringify(this.state)}</p>
+        <label>Limite Inferior</label>
+        <input
+          onChange={(e) => this.establecerLimiteInferior(e.target.value)}
+          placeholder="ingresa el limite inferior"
+        />
         <button onClick={this.aumentarContador}>Up</button>
         <button onClick={this.disminuirContador}>Down</button>
         <button onClick={() => this.resetState()}>Reset</button>
