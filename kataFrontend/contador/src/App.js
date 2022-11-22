@@ -30,6 +30,10 @@ export default class App extends Component {
   establecerLimiteInferior(nuevoLimite) {
     this.setState({ limiteInferior: nuevoLimite });
   }
+
+  establecerLimiteSuperior(nuevoLimite) {
+    this.setState({ limiteSuperior: nuevoLimite });
+  }
   render() {
     return (
       <div className="App App-header">
@@ -41,6 +45,11 @@ export default class App extends Component {
         <input
           onChange={(e) => this.establecerLimiteInferior(e.target.value)}
           placeholder="ingresa el limite inferior"
+        />
+        <label>Limite Superior</label>
+        <input
+          onChange={(e) => this.establecerLimiteSuperior(e.target.value)}
+          placeholder="ingresa limite superior"
         />
         <button onClick={this.aumentarContador}>Up</button>
         <button onClick={this.disminuirContador}>Down</button>
