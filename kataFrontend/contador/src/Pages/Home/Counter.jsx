@@ -1,22 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import logo from "../../assets/logo.svg";
+import "./Counter.css";
+import InputValue from "../../Shared/InputValue";
+import Button from "../../Shared/Button";
 
-export default class App extends Component {
+export default class Counter extends Component {
   constructor() {
     super();
     this.state = {
       contador: 0,
       limiteInferior: 0,
-      limiteSuperior: 12,
+      limiteSuperior: 0,
     };
     this.aumentarContador = this.aumentarContador.bind(this);
     this.disminuirContador = this.disminuirContador.bind(this);
+    this.establecerLimiteInferior = this.establecerLimiteInferior.bind(this);
+    this.establecerLimiteSuperior = this.establecerLimiteSuperior.bind(this);
   }
 
   /* functions */
   aumentarContador() {
-    if (this.state.contador < 15)
+    if (this.state.contador < this.state.limiteSuperior)
       this.setState({ contador: this.state.contador + 1 });
   }
   disminuirContador() {
@@ -41,18 +45,27 @@ export default class App extends Component {
         <p>Aplicacion de Contador</p>
         <p>{this.state.contador}</p>
         <p>{JSON.stringify(this.state)}</p>
-        <label>Limite Inferior</label>
-        <input
-          onChange={(e) => this.establecerLimiteInferior(e.target.value)}
+
+        <InputValue
+          title="Limite Inferior"
           placeholder="ingresa el limite inferior"
+          setLimit={this.establecerLimiteInferior}
         />
-        <label>Limite Superior</label>
-        <input
-          onChange={(e) => this.establecerLimiteSuperior(e.target.value)}
+
+        <InputValue
+          title="Limite Superior"
           placeholder="ingresa limite superior"
+          setLimit={this.establecerLimiteSuperior}
         />
-        <button onClick={this.aumentarContador}>Up</button>
-        <button onClick={this.disminuirContador}>Down</button>
+
+        <Button
+          handleClick={this.aumentarContador}
+          lable="Up" /* color={true} */
+        />
+        <Button
+          handleClick={this.disminuirContador}
+          lable="Down" /* color={false} */
+        />
         <button onClick={() => this.resetState()}>Reset</button>
       </div>
     );
