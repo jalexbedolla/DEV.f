@@ -11,6 +11,7 @@ export default class Counter extends Component {
       contador: 0,
       limiteInferior: 0,
       limiteSuperior: 0,
+      mensajes: [],
     };
     this.aumentarContador = this.aumentarContador.bind(this);
     this.disminuirContador = this.disminuirContador.bind(this);
@@ -22,10 +23,26 @@ export default class Counter extends Component {
   aumentarContador() {
     if (this.state.contador < this.state.limiteSuperior)
       this.setState({ contador: this.state.contador + 1 });
+    else {
+      this.setState({
+        mensajes: [
+          ...this.state.mensajes,
+          `el limite superior es: ${this.state.limiteSuperior}`,
+        ],
+      });
+    }
   }
   disminuirContador() {
     if (this.state.contador > this.state.limiteInferior)
       this.setState({ contador: this.state.contador - 1 });
+    else {
+      this.setState({
+        mensajes: [
+          ...this.state.mensajes,
+          `el limite inferior es: ${this.state.limiteInferior}`,
+        ],
+      });
+    }
   }
   resetState() {
     this.setState({ contador: 0 });
@@ -44,7 +61,7 @@ export default class Counter extends Component {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Aplicacion de Contador</p>
         <p>{this.state.contador}</p>
-        <p>{JSON.stringify(this.state)}</p>
+        {/* <p>{JSON.stringify(this.state)}</p> */}
 
         <InputValue
           title="Limite Inferior"
@@ -67,6 +84,11 @@ export default class Counter extends Component {
           lable="Down" /* color={false} */
         />
         <button onClick={() => this.resetState()}>Reset</button>
+        <ul>
+          {this.state.mensajes.map((mensaje) => (
+            <li>{mensaje}</li>
+          ))}
+        </ul>
       </div>
     );
   }
