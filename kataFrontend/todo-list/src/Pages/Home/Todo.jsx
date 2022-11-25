@@ -10,8 +10,8 @@ export default class Todo extends Component {
     super(props); /* despues el super, que no me acuerdo para que es..!! */
     /* y este es el famoso estado */
     this.state = {
-      newItem: "",
-      list: [],
+      newItem: "" /* uno donde se recive la informacion.. el 'input' */,
+      list: [] /* y el otro donde se pinta la informacion recibida del input 'e.target.value' */,
     };
   }
 
@@ -53,42 +53,44 @@ export default class Todo extends Component {
 
   render() {
     return (
-      <div className="text-center mt-10">
-        <header>
-          <h1 className="text-3xl text-sky-500">To-do List</h1>
-        </header>
-        <div className="flex justify-center items-center gap-2 mt-7">
-          <input
-            className="w-72 rounded-md px-3 py-3 bg-[#e8ecf4] backdrop-blur-lg"
-            type="text"
-            placeholder="Type a Task here..."
-            value={this.state.newItem}
-            onChange={(e) => this.updateInput("newItem", e.target.value)}
-          />
-          <button
-            className="h-full px-3 py-3 bg-orange-500 text-white font-medium rounded-md"
-            onClick={() => this.addItem()}
-          >
-            add
-          </button>
-        </div>
-        <div>
-          <ul>
-            {this.state.list.map((item) => {
-              return (
-                <li key={item.id}>
-                  {item.value}
+      <div className="h-100 w-full flex items-center justify-center font-sans  bg-gray-100">
+        <div className="rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg bg-white">
+          <div className="mb-4">
+            <h1 className="text-center text-3xl text-sky-500">To-do List</h1>
+            <div className="flex items-center justify-center mt-4">
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+                type="text"
+                placeholder="Type a Task here..."
+                value={this.state.newItem}
+                onChange={(e) => this.updateInput("newItem", e.target.value)}
+              />
+              <button
+                className="flex-no-shrink p-2 border-2 border-orange-500 rounded bg-orange-500 text-white hover:text-sky-500 "
+                onClick={() => this.addItem()}
+              >
+                add
+              </button>
+            </div>
+          </div>
+          <div className="rounded shadow p-6 w-full lg:w-3/4 lg:max-w-3/4 bg-white">
+            <ul>
+              {this.state.list.map((item) => {
+                return (
+                  <li key={item.id}>
+                    {item.value}
 
-                  <button
-                    className="h-full px-3 py-1 bg-red-500 text-white font-medium rounded-md"
-                    onClick={() => this.deleteItem(item.id)}
-                  >
-                    X
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    <button
+                      className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red"
+                      onClick={() => this.deleteItem(item.id)}
+                    >
+                      DONE
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     );
