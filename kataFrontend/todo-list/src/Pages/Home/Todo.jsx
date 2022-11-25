@@ -53,38 +53,35 @@ export default class Todo extends Component {
 
   render() {
     return (
-      <div className="h-100 w-full flex items-center justify-center font-sans  bg-gray-100">
-        <div className="rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg bg-white">
+      <div className="h-100 w-full flex items-center justify-center font-sans">
+        <div className="rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg border-sky-500 border-2">
           <div className="mb-4">
             <h1 className="text-center text-3xl text-sky-500">To-do List</h1>
             <div className="flex items-center justify-center mt-4">
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+                className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker placeholder:text-sky-500"
                 type="text"
                 placeholder="Type a Task here..."
                 value={this.state.newItem}
                 onChange={(e) => this.updateInput("newItem", e.target.value)}
               />
               <button
-                className="flex-no-shrink p-2 border-2 border-orange-500 rounded bg-orange-500 text-white hover:text-sky-500 "
+                className="flex-no-shrink p-2 border-2 border-none rounded bg-orange-500 text-white hover:text-sky-500 "
                 onClick={() => this.addItem()}
               >
                 add
               </button>
             </div>
           </div>
-          <div className="rounded shadow p-6 w-full lg:w-3/4 lg:max-w-3/4 bg-white">
+          <div className="rounded shadow p-6 w-full lg:w-3/4 lg:max-w-3/4 border-sky-500 border-2">
             <ul>
               {this.state.list.map((item) => {
                 return (
                   <li key={item.id}>
                     {item.value}
 
-                    <button
-                      className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red"
-                      onClick={() => this.deleteItem(item.id)}
-                    >
-                      DONE
+                    <button onClick={() => this.deleteItem(item.id)}>
+                      delete
                     </button>
                   </li>
                 );
