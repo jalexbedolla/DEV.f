@@ -3,22 +3,20 @@ import logo from "./logo.svg";
 import "./App.css";
 
 export default class App extends Component {
+  state = {
+    people: [
+      { id: 1, name: "Alex", lastname: "ls1" },
+      { id: 2, name: "Fer", lastname: "ls2" },
+      { id: 3, name: "Vale", lastname: "ls3" },
+      { id: 4, name: "Carlos", lastname: "ls4" },
+      { id: 5, name: "keni", lastname: "ls5" },
+    ],
+  };
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
       </div>
     );
