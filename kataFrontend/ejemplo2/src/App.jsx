@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Person from "./shared/Person";
 
 export default class App extends Component {
   state = {
@@ -17,6 +18,15 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <ul className="d-flex flex-column justify-evenly">
+            {this.state.people.map((person) => (
+              <Person
+                id={person.id}
+                name={person.name}
+                lastname={person.lastname}
+              />
+            ))}
+          </ul>
         </header>
       </div>
     );
