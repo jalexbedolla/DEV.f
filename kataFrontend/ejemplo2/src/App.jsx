@@ -13,6 +13,10 @@ export default class App extends Component {
       { id: 5, name: "keni", lastname: "ls5" },
     ],
   };
+
+  handleGreeating = (name, lastname) => {
+    alert(`hola ${name} ${lastname}`);
+  };
   render() {
     return (
       <div className="App">
@@ -24,6 +28,7 @@ export default class App extends Component {
                 id={person.id}
                 name={person.name}
                 lastname={person.lastname}
+                saludar={this.handleGreeating}
               />
             ))}
           </ul>

@@ -5,7 +5,14 @@ export default class Person extends Component {
     return (
       <li className="d-flex justify-content-evenly mb-2">
         <h3>{`${this.props.name} ${this.props.lastname}`}</h3>
-        <button className="btn btn-outline-primary">Hello..!</button>
+        <button
+          onClick={() =>
+            this.props.saludar(this.props.name, this.props.lastname)
+          }
+          className="btn btn-outline-primary"
+        >
+          Hello..!
+        </button>
       </li>
     );
   }
