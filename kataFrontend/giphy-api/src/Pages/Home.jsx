@@ -11,7 +11,7 @@ export default class Home extends Component {
   handleSearch = async (term) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${term}&limit=10&rating=G`
+      `https://api.giphy.com/v1/stickers/search?api_key=${process.env.REACT_APP_API_KEY}&q=${term}&limit=10&rating=G`
     );
     console.log(res.data.data);
     this.setState({ loading: false, resultados: res.data.data });
