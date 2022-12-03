@@ -1,0 +1,29 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+/* paul irish */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* globales */
+img {
+  display: block;
+  width: 100%;
+}
+/* header */
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 5rem;
+}
+.logo {
+  fill: #e50914;
+  width: 16rem;
+  height: 4.5rem;
+}
