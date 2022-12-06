@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"; // no olvidar poner los hook
 import { placeholderApi } from "../Api/placeholderApi";
 
 export const Users = ({ company }) => {
-  const [serch, setSerch] = useState("");
   const [users, setUsers] = useState([]);
 
   const getUserData = async () => {
@@ -16,6 +15,9 @@ export const Users = ({ company }) => {
     //aqui escribimos nuestro callBack
     console.log("hola..me monte en la pantalla :)");
     getUserData();
+    return () => {
+      console.log("adios");
+    };
     // y aqui nuestro cleanUp Function
   }, [company]);
   // a este se le llama arreglo de dependencias
@@ -28,12 +30,6 @@ export const Users = ({ company }) => {
   */
   return (
     <>
-      <input
-        value={serch}
-        onChange={(e) => setSerch(e.target.value)}
-        placeholder="usuario"
-      />
-      {/* {serch} para pintar lo del input en la interface */}
       <ul>
         {users.map((user) => (
           <li key={user.id}>
