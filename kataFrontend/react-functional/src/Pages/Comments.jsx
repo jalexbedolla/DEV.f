@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react'
 
 export const Comments = () => {
-  return <div>Comments</div>;
-};
+  return (
+    <div>Comments</div>
+  )
+}
+

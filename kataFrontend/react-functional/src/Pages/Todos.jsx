@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react'
 
 export const Todos = () => {
-  return <div>Todos</div>;
-};
+  return (
+    <div>Todos</div>
+  )
+}
+

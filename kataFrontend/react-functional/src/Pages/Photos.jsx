@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react'
 
 export const Photos = () => {
-  return <div>Photos</div>;
-};
+  return (
+    <div>Photos</div>
+  )
+}

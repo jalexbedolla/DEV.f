@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"; // no olvidar poner los hook a usar
 import { placeholderApi } from "../Api/placeholderApi";
 
-export const Users = ({ company }) => {
+export const Users = () => {
   const [users, setUsers] = useState([]);
 
   const getUserData = async () => {
@@ -19,7 +19,7 @@ export const Users = ({ company }) => {
       console.log("adios");
     };
     // y aqui nuestro cleanUp Function
-  }, [company]);
+  }, []);
   // a este se le llama arreglo de dependencias
 
   /*
