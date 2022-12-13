@@ -1,7 +1,13 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 export const SingleUser = () => {
+  const params = useParams()
   return (
-    <div>SingleUser</div>
+    <div>
+      {
+        JSON.stringify(params)
+      }
+    </div>
   )
 }

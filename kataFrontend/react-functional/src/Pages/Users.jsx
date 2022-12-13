@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"; // no olvidar poner los hook a usar
 import { placeholderApi } from "../Api/placeholderApi";
+import { Link } from "react-router-dom";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);

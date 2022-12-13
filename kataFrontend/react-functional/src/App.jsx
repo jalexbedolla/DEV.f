@@ -1,3 +1,5 @@
+/*  esta es una aplicacion 'SPA.. single page aplication */
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -11,6 +13,7 @@ import {
   Todos,
   Users,
   Home,
+  SharedUserLayout,
 } from "./Pages";
 
 const App = () => {
@@ -27,7 +30,10 @@ const App = () => {
         <Route path="post" element={<Post />} />
         <Route path="singleUser" element={<SingleUser />} />
         <Route path="todos" element={<Todos />} />
-        <Route path="users" element={<Users />} />
+        <Route path="user" element={<SharedUserLayout/>}>
+          <Route index element={<Users/>}/>
+          <Route path=":userId" element={<SingleUser/>}/>
+        </Route>      
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

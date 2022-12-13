@@ -7,3 +7,4 @@ export { SingleUser } from "./SingleUser";
 export { Todos } from "./Todos";
 export { Users } from "./Users";
 export { Home } from "./Home";
+export { SharedUserLayout } from "./SharedUserLayout";
