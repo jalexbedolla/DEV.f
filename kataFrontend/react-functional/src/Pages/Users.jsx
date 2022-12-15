@@ -32,11 +32,11 @@ export const Users = () => {
   return (
     <>
       <ul>
-        {users.map((user) => (
+        {users.map(user => (
           <li key={user.id}>
-            <p>
-              {`Name: ${user.name}, Username: ${user.username}, Email: ${user.email}`}
-            </p>
+            <Link to={`/users/${user.id}`}>
+              {`${user.name}`}
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,12 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState}from 'react'
 import { useParams } from 'react-router-dom'
+import { placeholderApi } from '../Api/placeholderApi'
 
 export const SingleUser = () => {
-  const params = useParams()
+  const [user, setUser] = useState({})
+  const {userId} = useParams()
+
+  const getSingleUserData= async () => {
+    try {
+      const res = await placeholderApi.get(`/users/${userId}`)
+      setUser(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getSingleUserData()
+  }, [])
+  
   return (
     <div>
       {
-        JSON.stringify(params)
+        JSON.stringify(user)
       }
     </div>
   )

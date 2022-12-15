@@ -28,9 +28,9 @@ const App = () => {
         <Route path="comments" element={<Comments />} />
         <Route path="photos" element={<Photos />} />
         <Route path="post" element={<Post />} />
-        <Route path="singleUser" element={<SingleUser />} />
+        {/* <Route path="singleUser" element={<SingleUser />} /> */}
         <Route path="todos" element={<Todos />} />
-        <Route path="user" element={<SharedUserLayout/>}>
+        <Route path="users" element={<SharedUserLayout/>}>
           <Route index element={<Users/>}/>
           <Route path=":userId" element={<SingleUser/>}/>
         </Route>      

@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Post = () => {
   return (
-    <div>Post</div>
+    <div>Aqui mostramos todos los Post</div>
   )
 }

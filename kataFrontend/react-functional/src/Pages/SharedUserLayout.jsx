@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 export const SharedUserLayout = () => {
   return (
     <>
-      <div>USER X</div>
+      <div>USER</div>
       <Outlet/>
     </>
   )
