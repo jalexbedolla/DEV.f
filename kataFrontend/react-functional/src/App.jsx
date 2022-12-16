@@ -15,6 +15,7 @@ import {
   Home,
   SharedUserLayout,
 } from "./Pages";
+import { Navbar } from "./Shared/Navbar";
 
 const App = () => {
   return (
@@ -22,9 +23,9 @@ const App = () => {
     /* 2. 'RouterProvider' indica los componentes que sirven como rutas de navegacion */
     /* 3. definir las rutas las cuales tienen 2 props: path, element */
     <BrowserRouter>
-    <Link to={'/'}>Home</Link>
-    <Link to={'users'}>Users</Link>
-    <Link to={'photos'}>Photos</Link>
+
+    <Navbar/>     
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="albums" element={<Albums />} />
