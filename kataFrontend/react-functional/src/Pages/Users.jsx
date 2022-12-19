@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react"; // no olvidar poner los hook a usar
-import { placeholderApi } from "../Api/placeholderApi";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react' // no olvidar poner los hook a usar
+import { placeholderApi } from '../Api/placeholderApi'
+import { Link } from 'react-router-dom'
 
 export const Users = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([])
 
   const getUserData = async () => {
-    const res = await placeholderApi.get("/users");
-    setUsers(res.data);
-    console.log("me volvi a crear");
-  };
+    const res = await placeholderApi.get('/users')
+    setUsers(res.data)
+    console.log('me volvi a crear')
+  }
 
   // esta es la funciont que se ejecuta "cuando nuestro componente se monta por primera vez en la UI"
   useEffect(() => {
-    //aqui escribimos nuestro callBack
-    console.log("hola..me monte en la pantalla :)");
-    getUserData();
+    // aqui escribimos nuestro callBack
+    console.log('hola..me monte en la pantalla :)')
+    getUserData()
     return () => {
-      console.log("adios");
-    };
+      console.log('adios')
+    }
     // y aqui nuestro cleanUp Function
-  }, []);
+  }, [])
   // a este se le llama arreglo de dependencias
 
   /*
@@ -41,5 +41,5 @@ export const Users = () => {
         ))}
       </ul>
     </>
-  );
-};
+  )
+}
