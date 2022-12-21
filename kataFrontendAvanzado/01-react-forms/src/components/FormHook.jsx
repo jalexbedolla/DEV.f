@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 import { useState, useEffect } from 'react'
 import useForm from '../hooks/useForm'
 import logo from '../assets/react.svg'
@@ -25,12 +26,12 @@ const FormHook = () => {
     setTimeout(() => {
       const info = {
         // JSON que manda el BackEnd
-        nombre: 'Alex',
-        apellido: 'Bedolla',
-        edad: 44,
-        genero: 'M',
-        email: 'hola@alex.org',
-        password: 'unoMuySeguro'
+        nombre: '',
+        apellido: '',
+        edad: '',
+        genero: '',
+        email: '',
+        password: ''
       }
       setDatos(info)
     }, 2000)
@@ -47,15 +48,56 @@ const FormHook = () => {
           width='200px'
           height='200px'
         />
+        
         <form>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='nombre'>Nombre</label>
           <input
             type='text'
+            name='nombre'
+            placeholder='Tu Perro nombre aqui'
+            onChange={handleInputChange}
+            value={input.nombre}
+          />
+
+          <label htmlFor='apellido'>Apellido</label>
+          <input
+            type='text'
+            name='apellido'
+            placeholder='y tu pinchi apellido aqui'
+            onChange={handleInputChange}
+            value={input.apellido}
+          />
+
+          <label htmlFor='edad'>Edad</label>
+          <input
+            type='number'
+            name='edad'
+            placeholder='Tu edad perrillo?'
+            onChange={handleInputChange}
+            value={input.edad}
+          />
+
+          <label htmlFor='genero'>Genero</label>
+          <select
+            name='genero'
+            onChange={handleInputChange}
+            value={input.genero}
+          >
+            <option value=''>Genero</option>
+            <option value='H'>Hombre</option>
+            <option value='M'>Mujer</option>
+            <option value='O'>Otro</option>
+          </select>
+
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
             name='email'
             placeholder='correo@email.com'
             onChange={handleInputChange}
             value={input.email}
           />
+
           <label htmlFor='password'>Password</label>
           <input
             type='password'
