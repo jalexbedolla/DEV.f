@@ -1,3 +1,4 @@
+import SongLIst from '../../components/SongList/SongLIst'
 import './home.css'
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <div className='home-container'>
       <div className='izquierdo'>
         <h2>Lado Izquierdo</h2>
+        <SongLIst />
       </div>
 
       <div className='derecho'>
