@@ -38,6 +38,7 @@ const useSongContext = () => {
   return context
 }
 
+/* Paso 4. exportar las funciones del proveedro y consumidor */
 export {
   SongProvider, // componente provedor
   useSongContext // componente consumidor
