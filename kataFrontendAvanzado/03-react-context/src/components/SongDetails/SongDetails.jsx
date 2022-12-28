@@ -11,7 +11,7 @@ const SongDetails = () => {
           <h1>{context.selectedSong.title}</h1>
           <h3>{context.selectedSong.artist}</h3>
           <h4>{context.selectedSong.year}</h4>
-        </div>
+          </div>
         : <h2>Selecciona una Cancion</h2>
      }
     </>
