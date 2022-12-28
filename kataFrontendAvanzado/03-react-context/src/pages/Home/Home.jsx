@@ -1,5 +1,6 @@
-import SongLIst from '../../components/SongList/SongLIst'
 import './home.css'
+import SongLIst from '@/components/SongList/SongLIst'
+import SongDetails from '@/components/SongDetails/SongDetails'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
 
       <div className='derecho'>
         <h2>Lado Derecho</h2>
+        <SongDetails />
       </div>
     </div>
   )
