@@ -1,17 +1,21 @@
 import { useSongContext } from '@/context/SongContext'
-import './header.css'
+
 const Header = () => {
   const context = useSongContext()
   const song = context.selectedSong
+
+  const handleSearch = (e) => {
+    context.setSearch(e.target.value)
+  }
+
   return (
     song.title
       ? (
-        <div className='header'>
-          <h4>Now Playing...</h4>
-          <h2>{song.title}</h2>
-        </div>
-        )
-      : <div>Selecciona una Rola</div>
+        <div>
+          Now Playing... {song.title}
+          <input type='search' onChange={handleSearch} />
+        </div>)
+      : <div>Selecciona una canción...</div>
   )
 }
 

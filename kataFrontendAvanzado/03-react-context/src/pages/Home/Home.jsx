@@ -1,8 +1,8 @@
 import './home.css'
-import SongLIst from '@/components/SongList/SongLIst'
-import SongDetails from '@/components/SongDetails/SongDetails'
+import SongList from '@/components/SongList'
+import SongDetails from '@/components/SongDetails'
 import { SongProvider } from '@/context/SongContext'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 
 const Home = () => {
   return (
@@ -12,15 +12,13 @@ const Home = () => {
         <div className='home-container'>
 
           <div className='izquierdo'>
-
             <h2>Lado Izquierdo</h2>
-            <SongLIst />
+            <SongList />
           </div>
 
           <div className='derecho'>
             <h2>Lado Derecho</h2>
             <SongDetails />
-
           </div>
 
         </div>
