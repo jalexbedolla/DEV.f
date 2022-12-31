@@ -1,0 +1,42 @@
+$salmon: darksalmon;
+
+@mixin header-links($hover) {
+  color: $salmon;
+    text-decoration: none;
+    letter-spacing: 2px;
+/* condicional.. si $hover es 'true'.. agreagme esto */
+    @if $hover {
+      &:hover {
+        border-bottom: solid 1px $salmon;
+      }
+    }
+}
+
+
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  /* box-shadow: 0px 3px 7px rgba(100, 100, 100, 0.2); */
+
+  &__logo {
+    @include header-links(false);/* y aqui se aplica la condicional */ 
+  }
+
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    column-gap: 20px;
+  }
+
+  &__item-link {
+    @include header-links(true);/* y aqui se aplica la condicional */
+
+    &--is-active {
+      border-bottom: solid 1px $salmon;
+    }
+    
+  }
+}
