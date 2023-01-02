@@ -1,71 +1,87 @@
-import Form from 'react-bootstrap/Form'
+import useForm from '@/hooks/useForm'
 
 function Register () {
+  const sendData = () => {
+    console.log('sendData')
+  }
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+    first_name: '',
+    last_name: '',
+    birth_date: '',
+    gender: '',
+    email: '',
+    password: ''
+  })
+
   return (
     <form className='container'>
       {/* name */}
       <div className='mt-5 mb-3'>
         <label
-          htmlFor='exampleFormControlInput1'
+          htmlFor='first_name'
           className='form-label'
         >Nombre
         </label>
         <input
           type='text'
-          className='form-control'
-          id='name'
+          name='fist_name'
+          onChange={handleInputChange}
+          value={input.first_name}
+          id='first_name'
           placeholder='Jhon'
+          className='form-control'
         />
       </div>
 
       {/* last name */}
       <div className='mb-3'>
         <label
-          htmlFor='exampleFormControlInput1'
+          htmlFor='last_name'
           className='form-label'
         >Apellido
         </label>
         <input
           type='text'
-          className='form-control'
-          id='last-name'
+          name='last_name'
+          id='last_name'
           placeholder='Doe'
+          className='form-control'
         />
       </div>
 
       {/* birth date */}
       <div className='mb-3'>
         <label
-          htmlFor='exampleFormControlInput1'
+          htmlFor='birth_name'
           className='form-label'
         >fecha de Nacimiento
         </label>
         <input
           type='date'
           className='form-control'
-          id='birth'
+          id='birth_name'
         />
       </div>
 
       {/* gender */}
       <div className='mb-3'>
         <label
-          htmlFor='exampleFormControlInput1'
+          htmlFor='gender'
           className='form-label'
         >Genero
         </label>
-        <Form.Select aria-label='Default select example'>
-          <option>Selecciona un Genero</option>
+        <select className='form-select'>
+          <option>Selecciona tu Genero</option>
           <option value='h'>Hombre</option>
           <option value='m'>Mujer</option>
           <option value='o'>Otro`</option>
-        </Form.Select>
+        </select>
       </div>
 
       {/* email */}
       <div className='mb-3'>
         <label
-          htmlFor='exampleFormControlInput1'
+          htmlFor='email'
           className='form-label'
         >Email
         </label>
@@ -80,7 +96,7 @@ function Register () {
       {/* password */}
       <div className='mb-3'>
         <label
-          htmlFor='inputPassword'
+          htmlFor='password'
           className='form-label'
         >Password
         </label>
